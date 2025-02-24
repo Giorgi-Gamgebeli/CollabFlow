@@ -3,14 +3,10 @@
   "compilerOptions": {
     "outDir": "./dist",
     "rootDir": "./src",
-    "baseUrl": ".",
-    "paths": {
-      "@repo/db": ["../../packages/db/src"]
-    }
+    "composite": true,
+    "declarationMap": true,
+    "incremental": true
   },
-  "references": [
-    { "path": "../../packages/db" }
-  ],
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist"]
 }

@@ -22,8 +22,8 @@
     "resolveJsonModule": true
   },
   "dependencies": {
-    "@prisma/client": "^5.3.1",
-    "cors": "^2.8.5", 
+    "@repo/db": "*",
+    "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.17.1"
   },
@@ -35,7 +35,6 @@
     "@types/node": "^22",
     "eslint": "^9.20.0",
     "nodemon": "^3.0.1",
-    "prisma": "^5.3.1",
     "ts-node": "^10.4.0",
     "typescript": "^5.7.3"
   },
@@ -47,4 +46,3 @@
     "dist"
   ]
 }
-
