@@ -20,10 +20,11 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hot-toast": "^2.5.2",
+    "react-parallax-tilt": "^1.7.284",
     "tailwindcss": "^4.0.9",
     "tldraw": "^3.8.1",
-    "yjs": "*",
-    "y-websocket": "*"
+    "y-websocket": "*",
+    "yjs": "*"
   },
   "devDependencies": {
     "@repo/eslint-config": "*",

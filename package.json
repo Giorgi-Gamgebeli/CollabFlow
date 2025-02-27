@@ -21,7 +21,5 @@
     "apps/*",
     "packages/*"
   ],
-  "dependencies": {
-    "react-parallax-tilt": "^1.7.284"
-  }
+  "dependencies": {}
 }
