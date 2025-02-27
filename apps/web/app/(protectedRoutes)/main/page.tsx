@@ -1,11 +1,5 @@
-// import { Tldraw } from "tldraw";
-
-function page() {
-  return (
-    <main className="w-screen h-screen">
-      <div style={{ position: "fixed", inset: 0 }}>{/* <Tldraw /> */}</div>
-    </main>
-  );
+function Page() {
+  return <main className="w-screen h-screen bg-red">bla bla bla</main>;
 }
 
-export default page;
+export default Page;
