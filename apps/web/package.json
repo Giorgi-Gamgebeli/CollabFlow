@@ -21,7 +21,9 @@
     "react-dom": "^19.0.0",
     "react-hot-toast": "^2.5.2",
     "tailwindcss": "^4.0.9",
-    "tldraw": "^3.8.1"
+    "tldraw": "^3.8.1",
+    "yjs": "*",
+    "y-websocket": "*"
   },
   "devDependencies": {
     "@repo/eslint-config": "*",
