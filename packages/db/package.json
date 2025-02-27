@@ -9,8 +9,7 @@
   "scripts": {
     "generate": "prisma generate",
     "migrate": "prisma migrate dev",
-    "build": "tsc",
-    "dev": "tsc -w"
+    "build": "tsc"
   },
   "dependencies": {
     "@prisma/client": "^5.0.0"
