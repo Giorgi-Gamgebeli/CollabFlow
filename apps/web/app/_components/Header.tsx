@@ -2,20 +2,22 @@ import ScrollFloatingAnimation from "./ScrollFloatingEffect";
 import FlexBox from "./FlexBox";
 import Image from "next/image";
 import Link from "next/link";
+import logo from "../../public/noBGLogo.png";
 
 function Header() {
   return (
-    <div className="fixed top-0 z-[999] w-full">
+    <header className="fixed top-0 z-[999] w-full">
       <ScrollFloatingAnimation>
         <FlexBox className="items-center justify-between text-sm">
           <FlexBox className="items-center gap-1">
-            <div className="h-11 w-11 overflow-hidden rounded-full">
+            <div className="relative h-11 w-11 overflow-hidden rounded-full">
               <Image
-                src="/logo.webp"
+                src={logo}
                 alt="logo of the company"
                 priority
-                height={50}
-                width={50}
+                className="absolute top-1/2 left-1/2 min-h-12 min-w-12 -translate-x-1/2 -translate-y-1/2"
+                height={70}
+                width={70}
               />
             </div>
             <p className="text-lg">Pixel Sync</p>
@@ -37,7 +39,7 @@ function Header() {
           </FlexBox>
         </FlexBox>
       </ScrollFloatingAnimation>
-    </div>
+    </header>
   );
 }
 
