@@ -22,10 +22,10 @@ function Header() {
           <p className="text-lg">Pixel Sync</p>
         </FlexBox>
         {/* <Nav /> */}
-        <FlexBox className="items-center gap-2 border-l border-gray-100 pl-2">
+        <FlexBox className="border-brand-200 items-center gap-2 border-l pl-2">
           <Link
             href="/login"
-            className="rounded-full border border-gray-200 px-3 py-2 transition-all duration-300 hover:bg-gray-200"
+            className="border-brand-200 hover:bg-brand-200 rounded-full border px-3 py-2 transition-all duration-300"
           >
             Login
           </Link>
