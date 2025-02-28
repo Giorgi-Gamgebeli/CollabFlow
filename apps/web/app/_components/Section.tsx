@@ -32,12 +32,12 @@ function Section({
 
   return (
     <section
-      className={`h-full min-h-[40rem] w-full overflow-hidden pb-10 ${className}`}
+      className={`h-full w-full overflow-hidden pb-10 ${className}`}
       ref={ref}
     >
       <span className="scroll-mt-48 opacity-0" id={idName} />
       <div
-        className={`mx-auto h-full min-h-[40rem] w-full max-w-[90%] xl:max-w-[1200px] ${divClassName}`}
+        className={`mx-auto h-full w-full max-w-[90%] xl:max-w-[1200px] ${divClassName}`}
       >
         {children}
       </div>

@@ -9,3 +9,7 @@
   --color-error: #ff5449;
   --color-ifYouDontKnow: #313031;
 }
+
+.scroller {
+  mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+}

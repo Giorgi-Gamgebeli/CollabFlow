@@ -20,7 +20,8 @@ function ScrollFloatingAnimation({ children }: { children: React.ReactNode }) {
   return (
     <MotionComponent
       style={{ y }}
-      className="mx-auto mt-10 flex max-w-[30%] flex-col overflow-hidden rounded-3xl border border-gray-200 bg-white/90 px-2 py-0.5 font-medium backdrop-blur-sm dark:bg-[#0c122c7c] dark:shadow-sm dark:shadow-slate-800 dark:backdrop-blur-md"
+      as="header"
+      className="fixed top-0 left-1/2 z-[999] mx-auto mt-10 flex w-[30rem] -translate-x-1/2 flex-col overflow-hidden rounded-3xl border border-gray-200 bg-white/90 px-2 py-0.5 font-medium backdrop-blur-sm dark:bg-[#0c122c7c] dark:shadow-sm dark:shadow-slate-800 dark:backdrop-blur-md"
     >
       {children}
     </MotionComponent>
