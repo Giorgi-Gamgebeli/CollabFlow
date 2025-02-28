@@ -21,7 +21,7 @@ function WhiteBoard() {
       tools={defaultTools}
       autoFocus={true}
       onMount={handleMount}
-      className="border-primary rotate-x-[40deg] rotate-y-[-5deg] border"
+      // className="border-primary  border"
 
       // persistenceKey="example"
     />
