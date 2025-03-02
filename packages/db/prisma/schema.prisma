@@ -8,14 +8,92 @@ datasource db {
 }
 
 model User {
+  id              Int         @id @default(autoincrement())
+  email           String      @unique
+  name            String
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+  workspaces      Workspace[]
+  ownedWorkspaces Workspace[] @relation("WorkspaceOwner")
+
+  friends   User[] @relation("UserFriends")
+  friendsOf User[] @relation("UserFriends")
+
+  sentFriendRequests     FriendRequest[] @relation("SentFriendRequests")
+  receivedFriendRequests FriendRequest[] @relation("ReceivedFriendRequests")
+
+  sentMessages     DirectMessage[]  @relation("SentDirectMessages")
+  receivedMessages DirectMessage[]  @relation("ReceivedDirectMessages")
+  channelMessages  ChannelMessage[]
+  channels         Channel[]        @relation("ChannelMembers")
+}
+
+model DirectMessage {
   id        Int      @id @default(autoincrement())
-  email     String   @unique
-  name      String?
+  content   String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  workspaces      Workspace[]
-  ownedWorkspaces Workspace[] @relation("WorkspaceOwner")
+  sender     User @relation("SentDirectMessages", fields: [senderId], references: [id], onDelete: Cascade)
+  senderId   Int
+  receiver   User @relation("ReceivedDirectMessages", fields: [receiverId], references: [id], onDelete: Cascade)
+  receiverId Int
+
+  @@index([senderId])
+  @@index([receiverId])
+}
+
+model Channel {
+  id          Int      @id @default(autoincrement())
+  name        String
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  workspace   Workspace @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  workspaceId Int
+
+  members  User[]           @relation("ChannelMembers")
+  messages ChannelMessage[]
+
+  @@index([workspaceId])
+}
+
+model ChannelMessage {
+  id        Int      @id @default(autoincrement())
+  content   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  channel   Channel @relation(fields: [channelId], references: [id], onDelete: Cascade)
+  channelId Int
+
+  sender   User @relation(fields: [senderId], references: [id])
+  senderId Int
+
+  @@index([channelId])
+  @@index([senderId])
+}
+
+model FriendRequest {
+  id        Int           @id @default(autoincrement())
+  createdAt DateTime      @default(now())
+  status    RequestStatus @default(PENDING)
+
+  sender     User @relation("SentFriendRequests", fields: [senderId], references: [id], onDelete: Cascade)
+  senderId   Int
+  receiver   User @relation("ReceivedFriendRequests", fields: [receiverId], references: [id], onDelete: Cascade)
+  receiverId Int
+
+  @@unique([senderId, receiverId])
+  @@index([senderId])
+  @@index([receiverId])
+}
+
+enum RequestStatus {
+  PENDING
+  ACCEPTED
+  REJECTED
 }
 
 model Workspace {
@@ -28,6 +106,7 @@ model Workspace {
   owner       User         @relation("WorkspaceOwner", fields: [ownerId], references: [id])
   ownerId     Int
   whiteboards Whiteboard[]
+  Channels    Channel[]
 
   @@index([ownerId])
 }
