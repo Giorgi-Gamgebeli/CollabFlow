@@ -14,7 +14,7 @@ function Page() {
     <>
       <Section divClassName="mt-20 grid min-h-[40rem]  grid-cols-2">
         <FlexBox className="flex-col items-center justify-center gap-7">
-          <h1 className="text-8xl font-extrabold text-cyan-500">
+          <h1 className="text-brand-500 text-8xl font-extrabold">
             Unleash Your Creativity
           </h1>
           <p className="text-lg leading-relaxed tracking-wide">
@@ -23,7 +23,7 @@ function Page() {
           </p>
           <Link
             href=""
-            className="rounded-lg bg-cyan-500 px-4 py-2 text-xl font-medium text-gray-800 shadow-[0_4px_0_0_#000] transition-all duration-300 hover:translate-y-1 hover:shadow-none"
+            className="bg-brand-500 rounded-lg px-4 py-2 text-xl font-medium text-gray-800 shadow-[0_4px_0_0_#000] transition-all duration-300 hover:translate-y-1 hover:shadow-none"
           >
             Start Creating
           </Link>

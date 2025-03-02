@@ -16,13 +16,13 @@ type ActiveSectionContextTypes = {
 };
 
 const ActiveSectionContext = createContext<ActiveSectionContextTypes | null>(
-  null
+  null,
 );
 
 function ActiveSectionContextProvider({
   children,
 }: ActiveSectionContextProviderTypes) {
-  const [activeSection, setActiveSection] = useState<SectionNameTypes>("home");
+  const [activeSection, setActiveSection] = useState<SectionNameTypes>("login");
   const [timeOfLastClick, setTimeOfLastClick] = useState<number>(0);
 
   return (
@@ -43,7 +43,7 @@ function useActiveSectionContext() {
   const context = useContext(ActiveSectionContext);
   if (context === null)
     throw new Error(
-      "ActiveSectionContext was used outside of ActiveSectionProvider"
+      "ActiveSectionContext was used outside of ActiveSectionProvider",
     );
 
   return context;

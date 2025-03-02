@@ -23,5 +23,5 @@
 }
 
 .scroller {
-  mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+  mask: linear-gradient(90deg, transparent, white 15%, white 85%, transparent);
 }
