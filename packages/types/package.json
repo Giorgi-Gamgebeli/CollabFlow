@@ -1,0 +1,10 @@
+{
+  "name": "@repo/types",
+  "version": "0.0.1",
+  "private": true,
+  "devDependencies": {
+    "@repo/eslint-config": "*",
+    "@repo/typescript-config": "*",
+    "typescript": "^5.7.3"
+  }
+}
