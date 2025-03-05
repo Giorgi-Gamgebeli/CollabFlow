@@ -1,15 +1,16 @@
 {
-  "extends": "@repo/typescript-config/base.json",
+  "extends": "@repo/typescript-config/node.json",
   "compilerOptions": {
     "outDir": "./dist",
     "rootDir": "./src",
     "baseUrl": ".",
     "paths": {
-      "@repo/db": ["../../packages/db/src"]
+      "@repo/*": ["../../packages/*/src"]
     }
   },
   "references": [
-    { "path": "../../packages/db" }
+    { "path": "../../packages/db" },
+    { "path": "../../packages/types" }
   ],
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist"]
