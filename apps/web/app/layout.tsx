@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "./globals.css";
-import Header from "./_components/Header";
 import { DarkModeProvider } from "./_context/DarkModeContext";
 import { ActiveSectionContextProvider } from "./_context/ActiveSectionContext";
 
@@ -26,10 +25,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${roboto.className} bg-gray-50`}>
         <ActiveSectionContextProvider>
-          <DarkModeProvider>
-            <Header />
-            {children}
-          </DarkModeProvider>
+          <DarkModeProvider>{children}</DarkModeProvider>
         </ActiveSectionContextProvider>
       </body>
     </html>

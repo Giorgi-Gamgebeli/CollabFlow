@@ -30,7 +30,7 @@ function Header() {
             Login
           </Link>
           <Link
-            href="/register"
+            href="/signup"
             className="bg-primary hover:bg-secondary rounded-full px-4 py-2 text-sm text-white transition-all duration-300"
           >
             Get Started
