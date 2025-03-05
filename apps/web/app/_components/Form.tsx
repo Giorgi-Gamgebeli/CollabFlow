@@ -11,7 +11,7 @@ function Form({ children, action, onSubmit, className }: FormProps) {
     <form
       action={action}
       onSubmit={onSubmit}
-      className={`border-brand-600 rounded-xl border px-10 py-8 ${className}`}
+      className={`border-brand-600 rounded-xl border ${className}`}
     >
       {children}
     </form>

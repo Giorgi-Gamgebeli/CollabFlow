@@ -45,15 +45,15 @@ function Input<T extends FieldValues>({
         {...(register && id
           ? register(id, { valueAsNumber: type === "number" })
           : { onBlur: onBlur, name: id })}
-        className="border-brand-600 outline-brand-700 w-[30rem] rounded-md border bg-white px-[1.2rem] py-[0.8rem] shadow-[0_0_0_rgba(0,0,0,0.04)] disabled:cursor-not-allowed disabled:bg-gray-300 disabled:dark:bg-gray-600"
+        className="border-brand-600 outline-brand-700 w-full rounded-md border bg-white px-[1.2rem] py-[1.1rem] shadow-[0_0_0_rgba(0,0,0,0.04)] disabled:cursor-not-allowed disabled:bg-gray-300 disabled:dark:bg-gray-600"
       />
 
       {type === "password" && (
         <Icon
           icon={
-            showPassword ? "ri:eye-line" : "qlementine-icons:eye-crossed-16"
+            showPassword ? "qlementine-icons:eye-crossed-16" : "ri:eye-line"
           }
-          className="text-brand-500 absolute top-1/2 right-5 -translate-y-1/2 cursor-pointer text-2xl"
+          className="text-brand-500 absolute top-1/2 right-5 -translate-y-1/2 cursor-pointer text-[1.7rem]"
           onClick={() => setShowPassword(!showPassword)}
         />
       )}

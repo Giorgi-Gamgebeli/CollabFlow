@@ -12,23 +12,23 @@ function page() {
 
   return (
     <main className="flex h-screen min-h-[40rem] items-center justify-center">
-      <Form action={action}>
-        <FlexBox className="mx-auto mb-5 w-[30rem] justify-between gap-10">
+      <Form action={action} className="min-w-[65rem] p-14">
+        <FlexBox className="mx-auto mb-5 w-[41rem] justify-between gap-10">
           <Link
-            className="border-brand-300 text-brand-400 hover:border-brand-600 hover:text-brand-600 box-border flex w-[50%] justify-center border-b-2 py-3 text-xl font-light transition-all duration-300"
+            className="border-brand-300 text-brand-400 hover:border-brand-600 hover:text-brand-600 box-border flex w-[50%] justify-center border-b-2 py-3 text-[2rem] font-light transition-all duration-300"
             href="/login"
           >
             Log in
           </Link>
           <button
             type="button"
-            className="border-brand-600 text-brand-600 box-border w-[50%] border-b-4 py-3 text-xl font-semibold"
+            className="border-brand-600 text-brand-600 box-border w-[50%] border-b-4 py-3 text-[2rem] font-bold"
           >
             Get Started
           </button>
         </FlexBox>
 
-        <FlexBox className="gap-5">
+        <div className="grid grid-cols-2 gap-10">
           <FormRow label="Username">
             <Input />
           </FormRow>
@@ -36,9 +36,9 @@ function page() {
           <FormRow label="Email">
             <Input />
           </FormRow>
-        </FlexBox>
+        </div>
 
-        <FlexBox className="gap-5">
+        <div className="grid grid-cols-2 gap-10">
           <FormRow label="Password">
             <Input type="password" />
           </FormRow>
@@ -46,28 +46,30 @@ function page() {
           <FormRow label="Reapeat password">
             <Input type="password" />
           </FormRow>
-        </FlexBox>
+        </div>
 
-        <FlexBox className="text-brand-600 mt-2 items-center gap-2">
-          <input type="checkbox" className="h-4 w-4" />
+        <FlexBox className="text-brand-600 mt-4 items-center gap-2 text-xl">
+          <input type="checkbox" className="size-6" />
           <p>Agree with</p>
-          <Link href="/privacypolicy" className="font-medium hover:underline">
+          <Link href="/privacypolicy" className="font-semibold hover:underline">
             privacy policy
           </Link>
         </FlexBox>
 
-        <FlexBox className="mt-8 flex-col items-center">
-          <button className="bg-brand-600 hover:bg-brand-700 w-[30rem] cursor-pointer rounded-lg py-3 text-lg text-white transition-all duration-300">
+        <FlexBox className="mt-14 flex-col items-center">
+          <button className="bg-brand-600 hover:bg-brand-700 w-[35rem] cursor-pointer rounded-lg py-4 text-[1.6rem] text-white transition-all duration-300">
             Sign up
           </button>
-          <span className="text-brand-600 my-5 text-xl font-medium">or</span>
-          <FlexBox className="h-10 gap-20">
+          <span className="text-brand-600 my-5 text-[2rem] font-medium">
+            or
+          </span>
+          <FlexBox className="h-10 gap-28">
             <Icon
               icon="flat-color-icons:google"
-              className="cursor-pointer text-[2.5rem]"
+              className="cursor-pointer text-[3.5rem]"
             />
 
-            <Icon icon="uil:github" className="cursor-pointer text-[2.5rem]" />
+            <Icon icon="uil:github" className="cursor-pointer text-[3.5rem]" />
           </FlexBox>
         </FlexBox>
       </Form>

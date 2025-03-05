@@ -16,7 +16,7 @@ function FormRow({ label, error, children }: FormRowProps) {
   return (
     <div className="flex flex-col gap-0.5 pt-[1.5rem] lg:pt-[1.2rem]">
       {label && (
-        <label className="text-brand-500 font-light" htmlFor={id}>
+        <label className="text-brand-500 text-xl" htmlFor={id}>
           {label}
         </label>
       )}
