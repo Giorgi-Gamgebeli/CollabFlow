@@ -4,15 +4,12 @@ import FormRow from "../_components/FormRow";
 import Input from "../_components/Input";
 import FlexBox from "../_components/FlexBox";
 import { Icon } from "@iconify/react/dist/iconify.js";
+import { login } from "../_lib/actions";
 
 function page() {
-  async function action() {
-    "use server";
-  }
-
   return (
     <main className="flex h-screen min-h-[40rem] items-center justify-center">
-      <Form action={action} className="min-w-[46rem] px-20 py-14">
+      <Form action={login} className="min-w-[46rem] px-20 py-14">
         <FlexBox className="mx-auto mb-5 justify-between gap-10">
           <button
             type="button"
@@ -29,11 +26,11 @@ function page() {
         </FlexBox>
 
         <FormRow label="Email">
-          <Input />
+          <Input defaultValue="jane@test.com" type="email" id="email" />
         </FormRow>
 
         <FormRow label="Password">
-          <Input type="password" />
+          <Input type="password" defaultValue="password123" id="password" />
         </FormRow>
 
         <Link

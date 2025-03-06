@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useSocket } from "../_hooks/useSocket";
 import toast, { Toaster } from "react-hot-toast";
 import { DirectMessage } from "@repo/types";
-import { getMessages, getUsers } from "../_api/messages";
+import { getMessages, getUsers } from "../api/messages";
 
 import ChatHeader from "./components/ChatHeader";
 import MessageInput from "./components/MessageInput";

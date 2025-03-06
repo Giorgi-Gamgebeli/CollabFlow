@@ -1,5 +1,13 @@
+"use client";
+
+import { useSession } from "next-auth/react";
+
 function Page() {
-  return <main className="w-screen h-screen bg-red">bla bla bla</main>;
+  const { data: session } = useSession();
+
+  if (!session) return <p>no session</p>;
+
+  return <main className="bg-red h-screen w-screen">{session}</main>;
 }
 
 export default Page;
