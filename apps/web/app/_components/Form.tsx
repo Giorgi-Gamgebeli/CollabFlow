@@ -3,15 +3,14 @@ type FormProps = {
   children: React.ReactNode;
   action?: (FormData: FormData) => void;
   onSubmit?: () => void;
-  className?: string;
 };
 
-function Form({ children, action, onSubmit, className }: FormProps) {
+function Form({ children, action, onSubmit }: FormProps) {
   return (
     <form
       action={action}
       onSubmit={onSubmit}
-      className={`border-brand-600 rounded-xl border ${className}`}
+      className="flex h-full flex-col justify-center px-14 py-10"
     >
       {children}
     </form>

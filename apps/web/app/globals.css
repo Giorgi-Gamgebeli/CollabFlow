@@ -25,3 +25,7 @@
 .scroller {
   mask: linear-gradient(90deg, transparent, white 15%, white 85%, transparent);
 }
+
+.clip-path-diagonal {
+  clip-path: polygon(0% 0%, 100% 0%, 0% 100%);
+}

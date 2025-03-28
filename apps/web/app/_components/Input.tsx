@@ -45,17 +45,23 @@ function Input<T extends FieldValues>({
         {...(register && id
           ? register(id, { valueAsNumber: type === "number" })
           : { onBlur: onBlur, name: id })}
-        className="border-brand-600 outline-brand-700 w-full rounded-md border bg-white px-[1.2rem] py-[1.1rem] shadow-[0_0_0_rgba(0,0,0,0.04)] disabled:cursor-not-allowed disabled:bg-gray-300 disabled:dark:bg-gray-600"
+        className="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-xl outline-none focus:border-gray-400 focus:shadow-[0_0_10px_rgba(0,0,0,0.01)] focus:shadow-gray-200 focus:outline disabled:cursor-not-allowed disabled:bg-gray-300 disabled:dark:bg-gray-600"
       />
 
       {type === "password" && (
-        <Icon
-          icon={
-            showPassword ? "qlementine-icons:eye-crossed-16" : "ri:eye-line"
-          }
-          className="text-brand-500 absolute top-1/2 right-5 -translate-y-1/2 cursor-pointer text-[1.7rem]"
-          onClick={() => setShowPassword(!showPassword)}
-        />
+        <>
+          <Icon
+            icon="qlementine-icons:eye-crossed-16"
+            className={`absolute top-1/2 right-5 -translate-y-1/2 cursor-pointer text-[1.7rem] ${showPassword ? "z-10" : "-z-10"}`}
+            onClick={() => setShowPassword(!showPassword)}
+          />
+
+          <Icon
+            icon="ri:eye-line"
+            className={`absolute top-1/2 right-5 -translate-y-1/2 cursor-pointer text-[1.7rem] ${showPassword ? "-z-10" : "z-10"}`}
+            onClick={() => setShowPassword(!showPassword)}
+          />
+        </>
       )}
     </div>
   );

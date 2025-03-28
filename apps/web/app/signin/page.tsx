@@ -3,19 +3,16 @@ import Form from "../_components/Form";
 import FormRow from "../_components/FormRow";
 import Input from "../_components/Input";
 import FlexBox from "../_components/FlexBox";
-import logo from "../../public/noBGLogo.png";
+import { login } from "../_lib/actions";
 import Image from "next/image";
+import logo from "../../public/noBGLogo.png";
 import ProviderButton from "../_components/ProviderButton";
 import AuthRightSide from "../_components/AuthRightSide";
 
-function page() {
-  async function action() {
-    "use server";
-  }
-
+function Page() {
   return (
-    <main className="grid min-h-[50rem] grid-cols-[44rem_1fr] text-gray-900">
-      <FlexBox className="border-secondary/20 flex-col border px-10 py-6">
+    <main className="grid min-h-[66.5rem] grid-cols-[44rem_1fr] text-gray-900">
+      <FlexBox className="min-w-[44rem] flex-col border border-gray-300 px-10 py-6">
         <FlexBox className="items-center gap-1">
           <Image
             src={logo}
@@ -27,10 +24,12 @@ function page() {
           />
           <h2 className="text-2xl font-semibold">Pixel Sync</h2>
         </FlexBox>
-        <Form action={action}>
-          <h1 className="mb-2 text-[2.5rem]">Get started</h1>
+        <Form action={login}>
+          <h1 className="mb-2 text-[2.5rem]">Welcome back</h1>
 
-          <h3 className="mb-12 text-lg text-gray-700">Create a new account</h3>
+          <h3 className="mb-12 text-lg text-gray-700">
+            Sign in to your account
+          </h3>
 
           <ProviderButton icon="line-md:github-loop">
             Continue with Github
@@ -46,33 +45,32 @@ function page() {
             <div className="w-full border-b border-gray-300"></div>
           </FlexBox>
 
-          <FormRow label="Username">
-            <Input />
-          </FormRow>
-
           <FormRow label="Email">
-            <Input />
+            <Input defaultValue="jane@test.com" type="email" id="email" />
           </FormRow>
 
           <FormRow label="Password">
-            <Input type="password" />
-          </FormRow>
+            <Link
+              href="passwordrecovery"
+              className="absolute top-[0.6rem] right-0 mt-2 inline-block text-xl hover:underline"
+            >
+              Forgot Password?
+            </Link>
 
-          <FormRow label="Reapeat password">
-            <Input type="password" />
+            <Input type="password" defaultValue="password123" id="password" />
           </FormRow>
 
           <button className="bg-brand-400 hover:bg-brand-500 border-brand-600 mt-14 w-full cursor-pointer rounded-lg border py-3 text-2xl text-gray-700 transition-all duration-300">
-            Sign Up
+            Sign In
           </button>
 
           <FlexBox className="mt-5 justify-center gap-2 text-xl">
-            <p>Already have an account?</p>
+            <p>Don&apos;t have an account?</p>
             <Link
-              href="/signin"
-              className="text-cyan-500 underline hover:no-underline"
+              href="/signup"
+              className="text-brand-500 underline hover:no-underline"
             >
-              Sign In Now
+              Sign Up Now
             </Link>
           </FlexBox>
         </Form>
@@ -83,4 +81,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;
