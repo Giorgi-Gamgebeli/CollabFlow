@@ -131,7 +131,13 @@ CREATE TABLE "_ChannelMembers" (
 );
 
 -- CreateIndex
+CREATE UNIQUE INDEX "User_id_key" ON "User"("id");
+
+-- CreateIndex
 CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "UserSettings_id_key" ON "UserSettings"("id");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "UserSettings_userId_key" ON "UserSettings"("userId");
@@ -140,19 +146,31 @@ CREATE UNIQUE INDEX "UserSettings_userId_key" ON "UserSettings"("userId");
 CREATE INDEX "UserSettings_userId_idx" ON "UserSettings"("userId");
 
 -- CreateIndex
+CREATE UNIQUE INDEX "DirectMessage_id_key" ON "DirectMessage"("id");
+
+-- CreateIndex
 CREATE INDEX "DirectMessage_senderId_idx" ON "DirectMessage"("senderId");
 
 -- CreateIndex
 CREATE INDEX "DirectMessage_receiverId_idx" ON "DirectMessage"("receiverId");
 
 -- CreateIndex
+CREATE UNIQUE INDEX "Channel_id_key" ON "Channel"("id");
+
+-- CreateIndex
 CREATE INDEX "Channel_workspaceId_idx" ON "Channel"("workspaceId");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "ChannelMessage_id_key" ON "ChannelMessage"("id");
 
 -- CreateIndex
 CREATE INDEX "ChannelMessage_channelId_idx" ON "ChannelMessage"("channelId");
 
 -- CreateIndex
 CREATE INDEX "ChannelMessage_senderId_idx" ON "ChannelMessage"("senderId");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "FriendRequest_id_key" ON "FriendRequest"("id");
 
 -- CreateIndex
 CREATE INDEX "FriendRequest_senderId_idx" ON "FriendRequest"("senderId");
@@ -164,7 +182,13 @@ CREATE INDEX "FriendRequest_receiverId_idx" ON "FriendRequest"("receiverId");
 CREATE UNIQUE INDEX "FriendRequest_senderId_receiverId_key" ON "FriendRequest"("senderId", "receiverId");
 
 -- CreateIndex
+CREATE UNIQUE INDEX "Workspace_id_key" ON "Workspace"("id");
+
+-- CreateIndex
 CREATE INDEX "Workspace_ownerId_idx" ON "Workspace"("ownerId");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "Whiteboard_id_key" ON "Whiteboard"("id");
 
 -- CreateIndex
 CREATE INDEX "Whiteboard_workspaceId_idx" ON "Whiteboard"("workspaceId");

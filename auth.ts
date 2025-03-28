@@ -27,7 +27,7 @@ export const {
 
       const existingUser = await db.user.findUnique({
         where: {
-          id: token.sub,
+          id: token.id as number,
         },
         // select: {
         //   image: true,
