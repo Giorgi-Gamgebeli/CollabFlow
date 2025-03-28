@@ -11,7 +11,7 @@ function page() {
 
   return (
     <main className="flex h-screen min-h-[40rem] items-center justify-center">
-      <Form action={action} className="min-w-[46rem] px-20 py-14">
+      <Form action={action}>
         <h1 className="text-brand-600 flex justify-center pt-5 pb-10 text-4xl font-semibold">
           Password recovery
         </h1>

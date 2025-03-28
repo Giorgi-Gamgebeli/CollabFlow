@@ -1,15 +1,10 @@
-import NextAuth from "next-auth";
+import NextAuth, { NextAuthConfig, NextAuthResult } from "next-auth";
 import authConfig from "./auth.config";
 import { db } from "@repo/db/src";
 // import db from "./app/_lib/db";
 // import { PrismaAdapter } from "@auth/prisma-adapter";
 
-export const {
-  handlers: { GET, POST },
-  auth,
-  signIn,
-  signOut,
-} = NextAuth({
+const nexAuth = NextAuth({
   callbacks: {
     // async signIn({ user }) {
     //   const existingUser = await getUserById(user.id as string);
@@ -56,3 +51,10 @@ export const {
   // adapter: PrismaAdapter(db),
   ...authConfig,
 });
+
+export const {
+  handlers: { GET, POST },
+  signIn,
+  signOut,
+} = nexAuth;
+export const auth: NextAuthResult["auth"] = nexAuth.auth;
