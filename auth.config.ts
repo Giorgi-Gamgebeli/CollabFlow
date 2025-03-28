@@ -2,7 +2,7 @@ import type { NextAuthConfig } from "next-auth";
 import { compare, hash } from "bcryptjs";
 import Credentials from "next-auth/providers/credentials";
 import { LoginSchema } from "./apps/web/app/_schemas/authSchemas";
-import { db } from "@repo/db/src";
+import { db } from "@repo/db";
 
 export default {
   session: {
