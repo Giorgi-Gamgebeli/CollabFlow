@@ -1,8 +1,6 @@
 import NextAuth, { NextAuthResult } from "next-auth";
 import authConfig from "./auth.config";
 import { db } from "@repo/db";
-// import db from "./app/_lib/db";
-// import { PrismaAdapter } from "@auth/prisma-adapter";
 
 const nexAuth = NextAuth({
   callbacks: {
@@ -18,37 +16,38 @@ const nexAuth = NextAuth({
 
     async jwt({ token }) {
       if (!token.sub) return token;
-      console.log(token.sub, token);
 
       const existingUser = await db.user.findUnique({
         where: {
-          id: token.id as number,
+          id: +token.sub as number,
         },
-        // select: {
-        //   image: true,
-        // },
+        select: {
+          avatar: true,
+          userName: true,
+        },
       });
 
       if (!existingUser) return token;
 
-      // token.image = existingUser.image;
+      token.avatar = existingUser.avatar;
+      token.userName = existingUser.userName;
 
       return token;
     },
 
     async session({ token, session }) {
       if (token.sub && session.user) {
-        session.user.id = token.sub;
+        session.user.numID = +token.sub;
       }
 
       if (session.user) {
-        session.user.image = token.image as string;
+        session.user.avatar = token.avatar as string;
+        session.user.userName = token.userName as string;
       }
 
       return session;
     },
   },
-  // adapter: PrismaAdapter(db),
   ...authConfig,
 });
 

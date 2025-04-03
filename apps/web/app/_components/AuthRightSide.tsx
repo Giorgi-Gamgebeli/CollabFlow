@@ -5,9 +5,8 @@ import { layerAnimation } from "../_animations/authAnimation";
 import { useAnimate } from "framer-motion";
 import MotionComponent from "./MotionComponent";
 import Image from "next/image";
-import sketchImg from "../../public/sketch.png";
-import userJourneyImg from "../../public/userJourney.png";
-import designImg from "../../public/design.png";
+import VideoPlayer from "./VideoPlayer";
+import illustration from "../../public/authIllustration.jpg";
 
 function AuthRightSide() {
   const [scope, animate] = useAnimate();
@@ -16,12 +15,12 @@ function AuthRightSide() {
     layerAnimation(animate);
   }, [animate]);
   return (
-    <div
-      className="flex h-full w-full items-center justify-center overflow-hidden bg-white"
+    <aside
+      className="relative flex h-full w-full items-center justify-center overflow-hidden bg-white"
       ref={scope}
     >
       <MotionComponent
-        className="bg-brand-400 relative h-20 w-20 rounded-full"
+        className="bg-brand-500 grid h-20 w-20 grid-rows-[1fr_38rem] rounded-full"
         initial={{ y: -500 }}
         id="secondLayer"
       >
@@ -46,41 +45,42 @@ function AuthRightSide() {
             id="headingSlider"
           >
             <h2 className="flex min-w-full justify-end text-3xl font-medium text-white">
-              Sketch It Out
+              SKETCH IT OUT
             </h2>
             <h2 className="flex min-w-full justify-end text-3xl font-medium text-white">
-              User Journey
+              USER FLOW
             </h2>
             <h2 className="flex min-w-full justify-end text-3xl font-medium text-white">
-              Design
+              DESIGN
             </h2>
           </MotionComponent>
         </div>
 
-        <div className="mt-60">
-          <MotionComponent
-            className="hidden h-full w-full translate-x-[100%] rotate-3 items-center gap-[100%]"
-            id="imageSlider"
-          >
-            <Image
-              src={sketchImg}
-              alt="something"
-              className="flex min-w-full justify-end text-3xl font-medium text-white"
-            />
-            <Image
-              src={userJourneyImg}
-              alt="something"
-              className="flex min-w-full justify-end text-3xl font-medium text-white"
-            />
-            <Image
-              src={designImg}
-              alt="something"
-              className="flex min-w-full justify-end text-3xl font-medium text-white"
-            />
-          </MotionComponent>
-        </div>
+        <MotionComponent
+          className="relative hidden"
+          initial={{ y: -500 }}
+          id="illustration"
+        >
+          <Image
+            src={illustration}
+            alt="illustration"
+            fill
+            className="object-cover object-[0%_25%]"
+          />
+        </MotionComponent>
+
+        <MotionComponent
+          className="hidden w-full translate-x-[100%] gap-[100%]"
+          id="videoSlider"
+        >
+          <VideoPlayer videoURL="/sketchItOut.mp4" />
+
+          <VideoPlayer videoURL="/userFlow.mp4" />
+
+          <VideoPlayer videoURL="/design.mp4" />
+        </MotionComponent>
       </MotionComponent>
-    </div>
+    </aside>
   );
 }
 

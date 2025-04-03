@@ -3,6 +3,8 @@ import { compare, hash } from "bcryptjs";
 import Credentials from "next-auth/providers/credentials";
 import { LoginSchema } from "./apps/web/app/_schemas/authSchemas";
 import { db } from "@repo/db";
+import Github from "next-auth/providers/github";
+import Google from "next-auth/providers/google";
 
 export default {
   session: {
@@ -10,6 +12,11 @@ export default {
     strategy: "jwt",
   },
   providers: [
+    Google,
+    Github({
+      clientId: process.env.GITHUB_CLIENT_ID,
+      clientSecret: process.env.GITHUB_CLIENT_SECRET,
+    }),
     Credentials({
       async authorize(credentials) {
         if (!credentials?.email || !credentials.password) return null;

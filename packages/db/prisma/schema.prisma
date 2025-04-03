@@ -34,7 +34,7 @@ enum RequestStatus {
 model User {
   id        Int     @id @unique @default(autoincrement())
   email     String  @unique
-  password  String
+  password  String?
   userName  String
   firstName String?
   lastName  String?

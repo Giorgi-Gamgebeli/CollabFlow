@@ -8,6 +8,7 @@ import Image from "next/image";
 import logo from "../../public/noBGLogo.png";
 import ProviderButton from "../_components/ProviderButton";
 import AuthRightSide from "../_components/AuthRightSide";
+import UserAgreement from "../_components/UserAgreement";
 
 function Page() {
   return (
@@ -73,6 +74,8 @@ function Page() {
               Sign Up Now
             </Link>
           </FlexBox>
+
+          <UserAgreement />
         </Form>
       </FlexBox>
 

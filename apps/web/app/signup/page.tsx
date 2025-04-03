@@ -1,18 +1,13 @@
-import Link from "next/link";
-import Form from "../_components/Form";
-import FormRow from "../_components/FormRow";
-import Input from "../_components/Input";
 import FlexBox from "../_components/FlexBox";
 import logo from "../../public/noBGLogo.png";
 import Image from "next/image";
-import ProviderButton from "../_components/ProviderButton";
 import AuthRightSide from "../_components/AuthRightSide";
+import SignUpForm from "./SignUpForm";
+import ProviderButton from "../_components/ProviderButton";
+import Link from "next/link";
+import UserAgreement from "../_components/UserAgreement";
 
-function page() {
-  async function action() {
-    "use server";
-  }
-
+function Page() {
   return (
     <main className="grid min-h-[50rem] grid-cols-[44rem_1fr] text-gray-900">
       <FlexBox className="border-secondary/20 flex-col border px-10 py-6">
@@ -27,15 +22,14 @@ function page() {
           />
           <h2 className="text-2xl font-semibold">Pixel Sync</h2>
         </FlexBox>
-        <Form action={action}>
-          <h1 className="mb-2 text-[2.5rem]">Get started</h1>
 
+        <FlexBox className="h-full flex-col justify-center px-14 py-10">
+          <h1 className="mb-2 text-[2.5rem]">Get started</h1>
           <h3 className="mb-12 text-lg text-gray-700">Create a new account</h3>
 
           <ProviderButton icon="line-md:github-loop">
             Continue with Github
           </ProviderButton>
-
           <ProviderButton icon="flat-color-icons:google">
             Continue with Google
           </ProviderButton>
@@ -46,25 +40,7 @@ function page() {
             <div className="w-full border-b border-gray-300"></div>
           </FlexBox>
 
-          <FormRow label="Username">
-            <Input />
-          </FormRow>
-
-          <FormRow label="Email">
-            <Input />
-          </FormRow>
-
-          <FormRow label="Password">
-            <Input type="password" />
-          </FormRow>
-
-          <FormRow label="Reapeat password">
-            <Input type="password" />
-          </FormRow>
-
-          <button className="bg-brand-400 hover:bg-brand-500 border-brand-600 mt-14 w-full cursor-pointer rounded-lg border py-3 text-2xl text-gray-700 transition-all duration-300">
-            Sign Up
-          </button>
+          <SignUpForm />
 
           <FlexBox className="mt-5 justify-center gap-2 text-xl">
             <p>Already have an account?</p>
@@ -75,7 +51,9 @@ function page() {
               Sign In Now
             </Link>
           </FlexBox>
-        </Form>
+
+          <UserAgreement />
+        </FlexBox>
       </FlexBox>
 
       <AuthRightSide />
@@ -83,4 +61,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;

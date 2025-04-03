@@ -1,9 +1,12 @@
 "use server";
 
-import { signIn } from "../../../../auth";
+import { auth, signIn } from "../../../../auth";
 import { AuthError } from "next-auth";
 import { isRedirectError } from "next/dist/client/components/redirect-error";
-import { LoginSchema } from "../_schemas/authSchemas";
+import { LoginSchema, SignupSchema } from "../_schemas/authSchemas";
+import { db } from "@repo/db";
+import { hash } from "bcryptjs";
+import { z } from "zod";
 
 export async function login(formData: FormData) {
   const formDataObj = {
@@ -36,5 +39,44 @@ export async function login(formData: FormData) {
 
     console.error(error);
     return { error: "Something went REALLY wrong!" };
+  }
+}
+
+export async function signup(values: z.infer<typeof SignupSchema>) {
+  const result = SignupSchema.safeParse(values);
+
+  if (!result.success)
+    return {
+      zodErrors: result.error.flatten().fieldErrors,
+    };
+
+  const { email, password, userName } = result.data;
+
+  try {
+    const existingUser = await db.user.findUnique({
+      where: {
+        email,
+      },
+      select: {
+        email: true,
+      },
+    });
+
+    if (existingUser) return { error: "Email already in use" };
+
+    const hashedPassword = await hash(password, 12);
+
+    await db.user.create({
+      data: {
+        userName: userName,
+        email,
+        password: hashedPassword,
+      },
+    });
+
+    return { sucess: "User created successfully!" };
+  } catch (error) {
+    console.error(error);
+    return { error: "Something went wrong" };
   }
 }

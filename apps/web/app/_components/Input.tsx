@@ -6,8 +6,8 @@ import { useFormStatus } from "react-dom";
 import { FieldValues, Path, UseFormRegister } from "react-hook-form";
 
 type InputProps<T extends FieldValues> = {
-  type?: HTMLInputTypeAttribute;
-  id?: Path<T>;
+  type: HTMLInputTypeAttribute;
+  id: Path<T>;
   autoComplete?: string;
   disabled?: boolean;
   placeholder?: string;
@@ -57,7 +57,7 @@ function Input<T extends FieldValues>({
           />
 
           <Icon
-            icon="ri:eye-line"
+            icon="qlementine-icons:eye-16"
             className={`absolute top-1/2 right-5 -translate-y-1/2 cursor-pointer text-[1.7rem] ${showPassword ? "-z-10" : "z-10"}`}
             onClick={() => setShowPassword(!showPassword)}
           />
