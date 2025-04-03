@@ -49,7 +49,7 @@ export default {
         if (!isPasswordValid) return null;
 
         return {
-          id: user.id.toString(),
+          numID: +user.id,
           email: user.email,
           userName: user.userName,
         };
