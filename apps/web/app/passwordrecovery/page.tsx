@@ -1,6 +1,6 @@
 import Form from "../_components/Form";
 import FormRow from "../_components/FormRow";
-import Input from "../_components/Input";
+// import Input from "../_components/Input";
 import FlexBox from "../_components/FlexBox";
 import Link from "next/link";
 
@@ -17,7 +17,9 @@ function page() {
         </h1>
 
         <FormRow label="Email">
-          <Input />
+          {/* <Input /> */}
+
+          <></>
         </FormRow>
 
         <FlexBox className="mt-14 flex-col items-center">
